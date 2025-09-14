@@ -1,15 +1,17 @@
-# Multi-stage build for React app
-FROM node:18-alpine AS builder
+# Alternative Dockerfile using Ubuntu instead of Alpine
+FROM node:18-slim AS builder
 
 # Set working directory
 WORKDIR /app
 
+# Install system dependencies
+RUN apt-get update && apt-get install -y python3 make g++
+
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies with legacy peer deps and fix Rollup issue
-RUN npm install --legacy-peer-deps && \
-    npm install @rollup/rollup-linux-x64-musl --save-dev
+# Install dependencies
+RUN npm install --legacy-peer-deps
 
 # Copy source code
 COPY . .
