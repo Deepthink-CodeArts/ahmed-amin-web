@@ -55,10 +55,10 @@ const HeroSection = () => {
           
           <div className="w-24 h-1 bg-primary mx-auto mb-8 rounded-full shadow-glow"></div>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+          {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
             Leading Bangladesh's industrial landscape through innovation, 
             excellence, and unwavering commitment to corporate leadership since 1998.
-          </p>
+          </p> */}
         </div>
 
         {/* CTA Buttons */}
