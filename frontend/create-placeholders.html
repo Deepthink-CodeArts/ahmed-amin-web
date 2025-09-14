@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placeholder Image Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .placeholder { margin: 10px; display: inline-block; }
+        canvas { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Placeholder Image Generator for Ahmed Amin Group</h1>
+    
+    <div id="placeholders"></div>
+
+    <script>
+        function createPlaceholder(width, height, text, filename) {
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#1a1a2e';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Border
+            ctx.strokeStyle = '#d4af37';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(1, 1, width-2, height-2);
+            
+            // Text
+            ctx.fillStyle = '#d4af37';
+            ctx.font = 'bold 16px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text, width/2, height/2);
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.textContent = `Download ${filename}`;
+            
+            const div = document.createElement('div');
+            div.className = 'placeholder';
+            div.appendChild(canvas);
+            div.appendChild(document.createElement('br'));
+            div.appendChild(link);
+            
+            document.getElementById('placeholders').appendChild(div);
+        }
+
+        // Create person placeholders (square)
+        createPlaceholder(400, 400, 'Ahmed Amin', 'ahmed-amin.jpg');
+        createPlaceholder(400, 400, 'Sarah Rahman', 'sarah-rahman.jpg');
+        createPlaceholder(400, 400, 'Karim Hassan', 'karim-hassan.jpg');
+
+        // Create partner placeholders (rectangular)
+        createPlaceholder(200, 100, 'Lubrizol', 'lubrizol.png');
+        createPlaceholder(200, 100, 'Oren', 'oren.png');
+        createPlaceholder(200, 100, 'Sodexo', 'sodexo.png');
+        createPlaceholder(200, 100, 'Godrej', 'godrej.png');
+        createPlaceholder(200, 100, 'Hengxin', 'hengxin.png');
+    </script>
+</body>
+</html>

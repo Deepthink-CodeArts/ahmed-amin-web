@@ -3,31 +3,41 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "@/hooks/useAuth";
-import ScrollToTop from "@/components/ScrollToTop";
-import Placeholder from "./pages/Placeholder";
-import CMS from "./pages/CMS";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import FoundersMessage from "./pages/about/FoundersMessage";
+import CompanyBackground from "./pages/about/CompanyBackground";
+import MediaCentre from "./pages/MediaCentre";
+import Career from "./pages/Career";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <div className="overflow-x-hidden max-w-full">
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Placeholder />} />
-              <Route path="/cms" element={<CMS />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </AuthProvider>
-    </QueryClientProvider>
-  </div>
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <div className="min-h-screen bg-background">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about/founders-message" element={<FoundersMessage />} />
+            <Route path="/about/company-background" element={<CompanyBackground />} />
+            <Route path="/media" element={<MediaCentre />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
 );
 
 export default App;
