@@ -32,7 +32,8 @@ jobs:
         run: |
           cd frontend
           rm -rf node_modules package-lock.json
-          npm install
+          npm install --legacy-peer-deps
+          npm install @rollup/rollup-linux-x64-gnu --save-dev
 
       - name: Build
         run: |
