@@ -52,14 +52,11 @@ if [ $? -ne 0 ]; then
     fi
 fi
 
-print_step "3. Running new container..."
+print_step "3. Running new container on port 3000..."
 docker run -d \
     --name ahmed-amin-frontend \
     --restart unless-stopped \
-    -p 80:80 \
-    -p 443:443 \
-    -v /etc/letsencrypt:/etc/letsencrypt:ro \
-    -v /var/www/certbot:/var/www/certbot:ro \
+    -p 3000:80 \
     ahmed-amin-frontend
 
 if [ $? -ne 0 ]; then
@@ -78,7 +75,7 @@ server {
     }
     
     location / {
-        proxy_pass http://localhost:80;
+        proxy_pass http://localhost:3000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -100,7 +97,7 @@ server {
     ssl_session_timeout 10m;
 
     location / {
-        proxy_pass http://localhost:80;
+        proxy_pass http://localhost:3000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
