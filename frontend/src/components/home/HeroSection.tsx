@@ -7,8 +7,8 @@ const HeroSection = () => {
       {/* Fallback Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-primary-dark to-background"></div>
       
-      {/* Video Background - Simplified test */}
-      <div className="absolute inset-0 bg-red-500" style={{ zIndex: 1 }}>
+      {/* Video Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary-dark to-background" style={{ zIndex: 1 }}>
         <video
           className="w-full h-full object-cover"
           autoPlay
