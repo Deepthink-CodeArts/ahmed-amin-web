@@ -14,8 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        'display': ['Playfair Display', 'serif'],
+        'display': ['Poppins', 'sans-serif'],
         'body': ['Inter', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -49,6 +51,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        // Custom colors for the new design
+        'light-gray': '#D3D3D3',
+        'deep-blue': '#000080',
+        'bright-red': '#FF0000',
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -90,10 +96,20 @@ export default {
             height: "0",
           },
         },
+        "shine": {
+          '0%': { 'background-position': '100%' },
+          '100%': { 'background-position': '-100%' },
+        },
+        "scroll": {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "shine": "shine 5s linear infinite",
+        "scroll": "scroll 20s linear infinite",
       },
     },
   },

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,34 +12,34 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Corporate Navy & Premium Colors */
-    --background: 218 40% 8%;
-    --foreground: 0 0% 98%;
+    /* Light Theme Colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
     
     /* Glass & Card Surfaces */
-    --card: 218 40% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
     
     /* Glassmorphism */
-    --glass: 218 40% 12%;
-    --glass-border: 0 0% 100%;
+    --glass: 0 0% 100%;
+    --glass-border: 0 0% 90%;
     
-    /* Premium Gold System */
-    --primary: 43 84% 55%;
-    --primary-foreground: 218 40% 8%;
-    --primary-glow: 43 100% 70%;
+    /* Deep Blue Primary System */
+    --primary: 240 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 240 100% 35%;
     
-    /* Elegant Secondary */
-    --secondary: 218 25% 20%;
-    --secondary-foreground: 0 0% 90%;
+    /* Light Gray Secondary */
+    --secondary: 0 0% 83%;
+    --secondary-foreground: 0 0% 20%;
     
-    /* Muted Luxury */
-    --muted: 218 30% 15%;
-    --muted-foreground: 218 10% 65%;
+    /* Muted Light Gray */
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 45%;
     
-    /* Silver Accents */
-    --accent: 220 15% 25%;
-    --accent-foreground: 0 0% 85%;
+    /* Red Accents */
+    --accent: 0 100% 50%;
+    --accent-foreground: 0 0% 100%;
     
     /* Status Colors */
     --destructive: 0 84% 60%;
@@ -46,24 +49,24 @@ All colors MUST be HSL.
     --success-foreground: 0 0% 98%;
     
     /* Interactive Elements */
-    --border: 218 30% 18%;
-    --input: 218 30% 15%;
-    --ring: 43 84% 55%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 240 100% 25%;
     
-    /* Premium Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(43 84% 55%), hsl(43 100% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(218 40% 8%) 0%, hsl(218 50% 12%) 50%, hsl(218 40% 8%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsla(218 40% 15% / 0.8), hsla(218 40% 20% / 0.6));
-    --gradient-silver: linear-gradient(135deg, hsl(220 15% 25%), hsl(220 15% 35%));
+    /* Light Theme Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(240 100% 25%), hsl(240 100% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 95%) 50%, hsl(0 0% 100%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(0 0% 100% / 0.9), hsla(0 0% 95% / 0.8));
+    --gradient-silver: linear-gradient(135deg, hsl(0 0% 83%), hsl(0 0% 90%));
     
-    /* Corporate Shadows */
-    --shadow-elegant: 0 20px 40px -10px hsla(218 40% 8% / 0.8);
-    --shadow-glow: 0 0 60px hsla(43 84% 55% / 0.3);
-    --shadow-glass: 0 8px 32px hsla(218 40% 8% / 0.4);
+    /* Light Theme Shadows */
+    --shadow-elegant: 0 20px 40px -10px hsla(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 60px hsla(240 100% 25% / 0.2);
+    --shadow-glass: 0 8px 32px hsla(0 0% 0% / 0.1);
     
-    /* Typography Scales */
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+        /* Typography Scales */
+        --font-display: 'Poppins', sans-serif;
+        --font-body: 'Inter', sans-serif;
     
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -143,6 +146,28 @@ All colors MUST be HSL.
   
   .font-body {
     font-family: var(--font-body);
+  }
+}
+
+/* Override NavigationMenu default red styling */
+@layer components {
+  [data-radix-navigation-menu-trigger] {
+    color: inherit !important;
+  }
+  
+  [data-radix-navigation-menu-trigger][data-state="open"] {
+    background-color: inherit !important;
+    color: inherit !important;
+  }
+  
+  [data-radix-navigation-menu-trigger][data-state="active"] {
+    background-color: inherit !important;
+    color: inherit !important;
+  }
+  
+  [data-radix-navigation-menu-trigger]:hover {
+    background-color: inherit !important;
+    color: inherit !important;
   }
 }
 
